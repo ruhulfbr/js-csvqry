@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -21,49 +30,55 @@ class CsvQ extends builder_1.default {
      * @param filePath - The path to the CSV file.
      * @returns A Promise that resolves to an instance of csvq.
      */
-    static async from(filePath) {
-        const instance = new CsvQ();
-        await instance.initialize(filePath);
-        instance.checkHasData();
-        // Set data array & field in parent class
-        instance.init(instance._rows, instance._headers);
-        return instance;
+    static from(filePath) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const instance = new CsvQ();
+            yield instance.initialize(filePath);
+            instance.checkHasData();
+            // Set data array & field in parent class
+            instance.init(instance._rows, instance._headers);
+            return instance;
+        });
     }
     /**
      * Initializes the csvq instance with data from the specified CSV file.
      * @param filePath - The path to the CSV file.
      * @returns A Promise that resolves when initialization is complete.
      */
-    async initialize(filePath) {
-        this.validateFile(filePath);
-        const fileContent = await readFile(filePath, "utf8");
-        await this.parseCsv(fileContent);
+    initialize(filePath) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.validateFile(filePath);
+            const fileContent = yield readFile(filePath, "utf8");
+            yield this.parseCsv(fileContent);
+        });
     }
     /**
      * Parses the CSV file content and populates the headers and rows.
      * @param fileContent - The content of the CSV file as a string.
      * @returns A Promise that resolves when parsing is complete.
      */
-    async parseCsv(fileContent) {
-        return new Promise((resolve, reject) => {
-            parse(fileContent, { delimiter: ",", from_line: 1 }, (err, rows) => {
-                if (err) {
-                    reject(err);
-                    return;
-                }
-                rows.forEach((row, index) => {
-                    if (index === 0) {
-                        this._headers = row;
+    parseCsv(fileContent) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return new Promise((resolve, reject) => {
+                parse(fileContent, { delimiter: ",", from_line: 1 }, (err, rows) => {
+                    if (err) {
+                        reject(err);
+                        return;
                     }
-                    else {
-                        const rowData = {};
-                        for (let i = 0; i < this._headers.length; i++) {
-                            rowData[this._headers[i]] = row[i];
+                    rows.forEach((row, index) => {
+                        if (index === 0) {
+                            this._headers = row;
                         }
-                        this._rows.push(rowData);
-                    }
+                        else {
+                            const rowData = {};
+                            for (let i = 0; i < this._headers.length; i++) {
+                                rowData[this._headers[i]] = row[i];
+                            }
+                            this._rows.push(rowData);
+                        }
+                    });
+                    resolve();
                 });
-                resolve();
             });
         });
     }
@@ -115,3 +130,4 @@ class CsvQ extends builder_1.default {
     }
 }
 module.exports = CsvQ;
+//# sourceMappingURL=csvq.js.map

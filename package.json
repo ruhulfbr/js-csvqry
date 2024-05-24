@@ -2,7 +2,8 @@
     "name": "csvqry",
     "description": "Make data retrieval query on CSV like laravel `Query Builder`",
     "main": "dist/csvq.js",
-    "version": "1.0.2",
+    "types": "dist/csvq.d.ts",
+    "version": "1.0.3",
     "license": "MIT",
     "author": "Md Ruhul Amin <ruhul11bd@gmail.com>",
     "scripts": {

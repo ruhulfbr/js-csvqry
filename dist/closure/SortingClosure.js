@@ -49,4 +49,3 @@ class SortingClosure {
  */
 SortingClosure.operatorsMap = ["ASC", "DESC", "asc", "desc"];
 exports.default = SortingClosure;
-//# sourceMappingURL=SortingClosure.js.map

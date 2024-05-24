@@ -17,4 +17,3 @@ class LimitClosure {
     }
 }
 exports.default = LimitClosure;
-//# sourceMappingURL=LimitClosure.js.map

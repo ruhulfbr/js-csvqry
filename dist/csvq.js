@@ -17,7 +17,7 @@ const util_1 = require("util");
 const builder_1 = __importDefault(require("./builder"));
 const readFile = (0, util_1.promisify)(fs_1.default.readFile);
 const { parse } = require("csv-parse");
-class CsvQ extends builder_1.default {
+class csvq extends builder_1.default {
     constructor() {
         super(...arguments);
         // Array to store CSV headers
@@ -32,7 +32,7 @@ class CsvQ extends builder_1.default {
      */
     static from(filePath) {
         return __awaiter(this, void 0, void 0, function* () {
-            const instance = new CsvQ();
+            const instance = new csvq();
             yield instance.initialize(filePath);
             instance.checkHasData();
             // Set data array & field in parent class
@@ -129,5 +129,4 @@ class CsvQ extends builder_1.default {
         }
     }
 }
-module.exports = CsvQ;
-//# sourceMappingURL=csvq.js.map
+module.exports = csvq;

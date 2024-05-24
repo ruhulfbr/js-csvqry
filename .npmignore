@@ -3,6 +3,6 @@
 /src
 example.csv
 tsconfig.json
-vite.config.json
+vite.config.js
 yarn.lock
 package-lock.json

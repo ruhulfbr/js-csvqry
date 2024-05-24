@@ -33,13 +33,13 @@ Just import/require the package before start using it.
 As a Node.js Package
 
 ```js
-const csvq = require("js-csvqry");
+const csvq = require("csvqry");
 ```
 
 As a ES6 Module
 
 ```js
-import csvq from "js-csvqry";
+import csvq from "csvqry";
 ```
 
 ```js

@@ -1,4 +1,4 @@
-// vitest.config.ts
+// vite.config.js
 import { configDefaults, defineConfig } from "vitest/config";
 
 export default defineConfig({

@@ -1,5 +1,5 @@
 {
-    "name": "js-csvqry",
+    "name": "csvqry",
     "description": "Make data retrieval query on CSV like laravel `Query Builder`",
     "main": "dist/csvq.js",
     "version": "1.0.0",

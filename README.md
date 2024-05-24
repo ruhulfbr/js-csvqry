@@ -14,16 +14,14 @@ This package is suitable for you if you need to perform some queries on:
 
 ## Installation
 
-To install the package, you can use [Node Js](https://nodejs.org):
-
 ```bash
-npm install js-csvqry
+npm i csvqry
 ```
 
 or
 
 ```bash
-yarn add js-csvqry
+yarn add csvqry
 ```
 
 ## Basic Usage

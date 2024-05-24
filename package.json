@@ -2,14 +2,8 @@
     "name": "js-csvqry",
     "description": "Make data retrieval query on CSV like laravel `Query Builder`",
     "main": "dist/index.js",
-    "type": "commonjs",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Md Ruhul Amin",
-            "email": "ruhul11bd@gmail.com"
-        }
-    ],
+    "author": "Md Ruhul Amin <ruhul11bd@gmail.com>",
     "scripts": {
         "test": "vitest",
         "test:ui": "vitest --ui",
@@ -25,5 +19,28 @@
     },
     "dependencies": {
         "csv-parse": "^5.5.6"
+    },
+    "tags": [
+        "csv",
+        "js-csvqry",
+        "csvq",
+        "sql",
+        "query",
+        "row",
+        "data",
+        "array",
+        "js",
+        "node",
+        "javascript",
+        "typescript",
+        "npm",
+        "package"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com:ruhulfbr/js-csvqry.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ruhulfbr/js-csvqry/issues"
     }
 }

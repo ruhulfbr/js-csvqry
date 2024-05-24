@@ -1,15 +1,20 @@
 {
     "name": "js-csvqry",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "description": "Make data retrieval query on CSV like laravel `Query Builder`",
+    "main": "dist/index.js",
+    "type": "commonjs",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Md Ruhul Amin",
+            "email": "ruhul11bd@gmail.com"
+        }
+    ],
     "scripts": {
         "test": "vitest",
         "test:ui": "vitest --ui",
-        "start": "nodemon --exec ts-node ./src/csvq.ts"
+        "build": "tsc"
     },
-    "author": "",
-    "license": "ISC",
     "devDependencies": {
         "@vitest/ui": "^1.6.0",
         "nodemon": "^3.1.0",

@@ -1,16 +1,14 @@
 "use strict";
-var __importDefault =
-    (this && this.__importDefault) ||
-    function (mod) {
-        return mod && mod.__esModule ? mod : { default: mod };
-    };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const util_1 = require("util");
 const builder_1 = __importDefault(require("./builder"));
 const readFile = (0, util_1.promisify)(fs_1.default.readFile);
 const { parse } = require("csv-parse");
-class csvq extends builder_1.default {
+class CsvQ extends builder_1.default {
     constructor() {
         super(...arguments);
         // Array to store CSV headers
@@ -24,7 +22,7 @@ class csvq extends builder_1.default {
      * @returns A Promise that resolves to an instance of csvq.
      */
     static async from(filePath) {
-        const instance = new csvq();
+        const instance = new CsvQ();
         await instance.initialize(filePath);
         instance.checkHasData();
         // Set data array & field in parent class
@@ -48,28 +46,25 @@ class csvq extends builder_1.default {
      */
     async parseCsv(fileContent) {
         return new Promise((resolve, reject) => {
-            parse(
-                fileContent,
-                { delimiter: ",", from_line: 1 },
-                (err, rows) => {
-                    if (err) {
-                        reject(err);
-                        return;
-                    }
-                    rows.forEach((row, index) => {
-                        if (index === 0) {
-                            this._headers = row;
-                        } else {
-                            const rowData = {};
-                            for (let i = 0; i < this._headers.length; i++) {
-                                rowData[this._headers[i]] = row[i];
-                            }
-                            this._rows.push(rowData);
-                        }
-                    });
-                    resolve();
+            parse(fileContent, { delimiter: ",", from_line: 1 }, (err, rows) => {
+                if (err) {
+                    reject(err);
+                    return;
                 }
-            );
+                rows.forEach((row, index) => {
+                    if (index === 0) {
+                        this._headers = row;
+                    }
+                    else {
+                        const rowData = {};
+                        for (let i = 0; i < this._headers.length; i++) {
+                            rowData[this._headers[i]] = row[i];
+                        }
+                        this._rows.push(rowData);
+                    }
+                });
+                resolve();
+            });
         });
     }
     /**
@@ -99,9 +94,7 @@ class csvq extends builder_1.default {
             throw new Error(`No data found in the CSV file.`);
         }
         if (this._headers.length === 0) {
-            throw new Error(
-                `CSV header is empty, the first row is considered as header/columns`
-            );
+            throw new Error(`CSV header is empty, the first row is considered as header/columns`);
         }
     }
     /**
@@ -115,9 +108,10 @@ class csvq extends builder_1.default {
             fs_1.default.accessSync(filePath, fs_1.default.constants.F_OK);
             fs_1.default.accessSync(filePath, fs_1.default.constants.R_OK);
             return true;
-        } catch (error) {
+        }
+        catch (error) {
             return false;
         }
     }
 }
-exports.default = csvq;
+module.exports = CsvQ;

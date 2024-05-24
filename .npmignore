@@ -1,0 +1,8 @@
+/node_modules
+/tests
+/src
+example.csv
+tsconfig.json
+vite.config.json
+yarn.lock
+package-lock.json

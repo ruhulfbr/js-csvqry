@@ -21,7 +21,7 @@
     "dependencies": {
         "csv-parse": "^5.5.6"
     },
-    "tags": [
+    "Keywords": [
         "csv",
         "js-csvqry",
         "csvq",
@@ -39,7 +39,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git://github.com:ruhulfbr/js-csvqry.git"
+        "url": "git://github.com/ruhulfbr/js-csvqry.git"
     },
     "bugs": {
         "url": "https://github.com/ruhulfbr/js-csvqry/issues"

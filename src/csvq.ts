@@ -6,7 +6,7 @@ import builder from "./builder";
 const readFile = promisify(fs.readFile);
 const { parse } = require("csv-parse");
 
-class csvq extends builder {
+class CsvQ extends builder {
     // Array to store CSV headers
     private _headers: string[] = [];
 
@@ -19,8 +19,8 @@ class csvq extends builder {
      * @returns A Promise that resolves to an instance of csvq.
      */
 
-    public static async from(filePath: string): Promise<csvq> {
-        const instance = new csvq();
+    public static async from(filePath: string): Promise<CsvQ> {
+        const instance = new CsvQ();
         await instance.initialize(filePath);
 
         instance.checkHasData();
@@ -131,4 +131,4 @@ class csvq extends builder {
     }
 }
 
-export default csvq;
+module.exports = CsvQ;
